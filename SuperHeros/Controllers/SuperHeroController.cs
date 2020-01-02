@@ -88,7 +88,7 @@ namespace SuperHeros.Controllers
         {
            
             SuperHero superHero = context.Supers.Where(i => i.Id == id).Single();
-            return View();
+            return View(superHero);
         }
 
         // POST: SuperHero/Delete/5

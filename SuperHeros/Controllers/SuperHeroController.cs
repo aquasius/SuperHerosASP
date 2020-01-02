@@ -17,7 +17,8 @@ namespace SuperHeros.Controllers
         // GET: SuperHero
         public ActionResult Index()
         {
-            return View();
+            List<SuperHero> supers = context.Supers.ToList();
+            return View(supers);
         }
 
         // GET: SuperHero/Details/5
@@ -66,8 +67,10 @@ namespace SuperHeros.Controllers
             try
             {
                 // TODO: Add update logic here
-                context.Supers.Add(superhero);
-                context.SaveChanges();
+                SuperHero dbSuperHero = context.Supers.Where(n => n.name == superhero.name).Single();
+
+
+               // context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

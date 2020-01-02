@@ -67,10 +67,14 @@ namespace SuperHeros.Controllers
             try
             {
                 // TODO: Add update logic here
-                SuperHero dbSuperHero = context.Supers.Where(n => n.name == superhero.name).Single();
+                SuperHero dbSuperHero = context.Supers.Where(i => i.Id == superhero.Id).Single();
+                dbSuperHero.name = superhero.name;
+                dbSuperHero.alterEgo = superhero.alterEgo;
+                dbSuperHero.primaryAbility = superhero.primaryAbility;
+                dbSuperHero.secondAbility = superhero.secondAbility;
+                dbSuperHero.catchPhrase = superhero.catchPhrase;
 
-
-               // context.SaveChanges();
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

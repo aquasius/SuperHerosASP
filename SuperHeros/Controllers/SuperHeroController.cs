@@ -24,7 +24,8 @@ namespace SuperHeros.Controllers
         // GET: SuperHero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SuperHero SuperHeroEdit = context.Supers.Where(s => s.Id == id).Single();
+            return View(SuperHeroEdit);
         }
 
         // GET: SuperHero/Create
@@ -109,5 +110,7 @@ namespace SuperHeros.Controllers
                 return View();
             }
         }
+
+       
     }
 }
